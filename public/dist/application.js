@@ -102,6 +102,140 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 ]);
 'use strict';
 
+angular.module('core').directive('phraseEntry', [
+	function() {
+        function link(scope, element, attrs) {
+            
+        }
+
+    
+		return {
+			templateUrl: 'modules/core/views/directives/phraseentry.view.html',
+			restrict: 'E',
+            scope: {
+                phrase: '='
+            },
+			link: link
+		};
+	}
+]);
+'use strict';
+
+angular.module('core').directive('phrasePreview', [
+	function() {
+        function link(scope, element, attrs) {
+            
+        }
+
+		return {
+			templateUrl: 'modules/core/views/directives/phrasepreview.view.html',
+			restrict: 'E',
+            scope: {
+                phrase: '='
+            },
+			link: link
+		};
+	}
+]);
+'use strict';
+
+angular.module('core').directive('runningTallies', [
+	function() {
+        function link(scope, element, attrs) {
+            
+        }
+
+    
+		return {
+			templateUrl: 'modules/core/views/directives/runningtallies.view.html',
+			restrict: 'E',
+            scope: {
+                characterTallies: '='
+            },
+			link: link
+		};
+	}
+]);
+'use strict';
+
+angular.module('core').directive('runningTally', [
+	function() {
+        function link(scope, element, attrs) {
+            
+        }
+
+    
+		return {
+			templateUrl: 'modules/core/views/directives/runningtally.view.html',
+			restrict: 'E',
+            scope: {
+                characterTally: '='
+            },
+			link: link
+		};
+	}
+]);
+'use strict';
+
+//Menu service used for managing  menus
+angular.module('core').service('ColorPalette', [
+    function() {
+        
+        /* Consider adding server support to configure this */
+        var defaultPalette = [
+            {foreground: '#69D2E7', border: '#57CDD0'},
+            {foreground: '#A7DBD8', border: '#97CBD0'}, 
+            {foreground: '#E0E4CC', border: '#D0D3BC'}, 
+            {foreground: '#F38630', border: '#FA5900'},
+            {foreground: '#6A7B79', border: '#556270'},
+            {foreground: '#ACE332', border: '#8EC70D'},
+            {foreground: '#FF6B6B', border: '#DD5B5B'}
+        ];
+        
+        /* 
+            Keys are the encountered characters
+            Values are the position in the system color palette
+        */
+        var colorTransferFunction = null;
+        
+        /*
+            If the color transfer function is null, check the server
+            If the server returns null (first use), assign an empty object
+            Else assign the returned object
+            
+            Returns a promise
+        */
+        function getColorTransferFunction() {
+            return colorTransferFunction;
+        }
+        
+        /* 
+            Save the transfer function to the server 
+        
+            Returns a promise
+        */
+        function saveColorTransferFunction() {
+        }
+        
+        /*
+            Get the color transfer function
+            Check the color transfer function for the character
+            If there is not one, create an entry and assign a color
+            Else return the color object at the position specified in the map
+            
+            Returns a promise
+        */
+        function getColorForCharacter(character) {
+            
+        }
+    
+        return {
+            getColorForCharacter: getColorForCharacter
+        };
+    }
+]);
+'use strict';
+
 //Menu service used for managing  menus
 angular.module('core').service('Menus', [
 
@@ -277,45 +411,6 @@ angular.module('core').service('Menus', [
         this.addMenu('topbar', {
             isPublic: false
         });
-    }
-]);
-
-'use strict';
-
-// Create the Socket.io wrapper service
-angular.module('core').service('Socket', ['Authentication', '$state', '$timeout',
-    function(Authentication, $state, $timeout) {
-    	// Connect to the Socket.io server only when authenticated
-        if (Authentication.user) {
-            this.socket = io();
-        } else {
-            $state.go('home');
-        }
-
-        // Wrap the Socket.io 'on' method
-        this.on = function(eventName, callback) {
-            if (this.socket) {
-                this.socket.on(eventName, function(data) {
-                    $timeout(function() {
-                        callback(data);
-                    });
-                });
-            }
-        };
-
-        // Wrap the Socket.io 'emit' method
-        this.emit = function(eventName, data) {
-            if (this.socket) {
-                this.socket.emit(eventName, data);
-            }
-        };
-
-        // Wrap the Socket.io 'removeListener' method
-        this.removeListener = function(eventName) {
-            if (this.socket) {
-                this.socket.removeListener(eventName);
-            }
-        };
     }
 ]);
 

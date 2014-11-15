@@ -1,0 +1,10 @@
+.phrase-entry {
+  text-align: center; }
+  .phrase-entry button {
+    margin: 0.5rem;
+    line-height: 2rem;
+    width: 120px;
+    background-color: #8699C4; }
+  .phrase-entry .phrase-entry__input {
+    line-height: 3rem;
+    font-size: 2rem; }
