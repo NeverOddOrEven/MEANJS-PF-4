@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('core').directive('runningTallies', [
+angular.module('core').directive('phraseInput', [
 	function() {
         function link(scope, element, attrs) {
             
@@ -11,7 +11,7 @@ angular.module('core').directive('runningTallies', [
 			templateUrl: '',
 			restrict: 'E',
             scope: {
-                characterTallies: '='
+                phrase: '='
             },
 			link: link
 		};
