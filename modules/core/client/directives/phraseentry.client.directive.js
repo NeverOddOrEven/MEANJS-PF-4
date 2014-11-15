@@ -3,7 +3,6 @@
 angular.module('core').directive('phraseEntry', [
 	function() {
         function link(scope, element, attrs) {
-            
         }
 
     

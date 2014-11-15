@@ -3,7 +3,7 @@
 angular.module('core').directive('runningTallies', [
 	function() {
         function link(scope, element, attrs) {
-            
+            console.info(scope.tallies);
         }
 
     
@@ -11,7 +11,7 @@ angular.module('core').directive('runningTallies', [
 			templateUrl: 'modules/core/views/directives/runningtallies.view.html',
 			restrict: 'E',
             scope: {
-                characterTallies: '='
+                tallies: '='
             },
 			link: link
 		};
