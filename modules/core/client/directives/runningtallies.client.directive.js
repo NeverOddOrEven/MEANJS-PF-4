@@ -8,7 +8,7 @@ angular.module('core').directive('runningTallies', [
 
     
 		return {
-			templateUrl: '',
+			templateUrl: 'modules/core/views/directives/runningtallies.view.html',
 			restrict: 'E',
             scope: {
                 characterTallies: '='

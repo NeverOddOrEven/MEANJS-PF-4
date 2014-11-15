@@ -8,7 +8,7 @@ angular.module('core').directive('runningTally', [
 
     
 		return {
-			templateUrl: '',
+			templateUrl: 'modules/core/views/directives/runningtally.view.html',
 			restrict: 'E',
             scope: {
                 characterTally: '='

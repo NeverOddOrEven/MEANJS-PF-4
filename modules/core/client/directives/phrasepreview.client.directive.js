@@ -6,9 +6,8 @@ angular.module('core').directive('phrasePreview', [
             
         }
 
-    
 		return {
-			templateUrl: '',
+			templateUrl: 'modules/core/views/directives/phrasepreview.view.html',
 			restrict: 'E',
             scope: {
                 phrase: '='
