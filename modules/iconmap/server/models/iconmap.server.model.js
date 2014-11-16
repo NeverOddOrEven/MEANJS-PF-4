@@ -6,15 +6,6 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
-var CharToIconSchema = new Schema({
-    char: {
-        type: String
-    },
-    icon: {
-        type: Number
-    }
-});
-
 /**
  * Phrase Schema
  */
@@ -23,7 +14,8 @@ var IconMapSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	content: [CharToIconSchema],
+	icons: {
+    },
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'

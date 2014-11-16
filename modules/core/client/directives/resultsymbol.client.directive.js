@@ -3,6 +3,7 @@
 angular.module('core').directive('resultSymbol', [
 	function() {
         function link(scope, element, attrs) {
+            console.log(scope.symbol);
         }
 
     

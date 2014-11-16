@@ -7,6 +7,8 @@ var _ = require('lodash'),
 	path = require('path'),
 	mongoose = require('mongoose'),
 	Phrase = mongoose.model('Phrase'),
+    IconMap = require(path.resolve('./modules/iconmap/server/services/iconmap.server.service')),
+    ColorMap = require(path.resolve('./modules/colormap/server/services/colormap.server.service')),
 	errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -22,7 +24,19 @@ exports.create = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.json(phrase);
+            IconMap.getIconsForPhrase(phrase.content, function(icons) {
+                ColorMap.getColorsForPhrase(phrase.content, function(colors) {
+                    var result = [];
+                    for (var i = 0; i < phrase.content.length; ++i) {
+                        result.push({
+                            char: phrase.content[i],
+                            icon: icons[phrase.content[i]],
+                            color: colors[phrase.content[i]]   
+                        });
+                    }
+                    res.json({symbols: result});
+                });
+            });
 		}
 	});
 };
@@ -32,25 +46,6 @@ exports.create = function(req, res) {
  */
 exports.read = function(req, res) {
 	res.json(req.phrase);
-};
-
-/**
- * Update a phrase
- */
-exports.update = function(req, res) {
-	var phrase = req.phrase;
-
-	phrase.content = req.body.content;
-
-	phrase.save(function(err) {
-		if (err) {
-			return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-			});
-		} else {
-			res.json(phrase);
-		}
-	});
 };
 
 /**

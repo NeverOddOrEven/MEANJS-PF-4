@@ -14,8 +14,7 @@ module.exports = function(app) {
 
 	// Single phrase routes
 	app.route('/api/phrases/:phraseId').all(phrasesPolicy.isAllowed)
-		.get(phrases.read)
-		.put(phrases.update);
+		.get(phrases.read);
 
 	// Finish by binding the phrase middleware
 	app.param('phraseId', phrases.phraseByID);
