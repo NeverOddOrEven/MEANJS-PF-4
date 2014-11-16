@@ -12,3 +12,6 @@
   .phrase-entry .phrase-entry__input {
     line-height: 3rem;
     font-size: 2rem; }
+
+.running-tallies {
+  min-height: 2rem; }

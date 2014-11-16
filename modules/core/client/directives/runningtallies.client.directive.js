@@ -3,7 +3,7 @@
 angular.module('core').directive('runningTallies', [
 	function() {
         function link(scope, element, attrs) {
-            console.info(scope.tallies);
+            
         }
 
     

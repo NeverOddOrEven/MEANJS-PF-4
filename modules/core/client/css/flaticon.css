@@ -1,0 +1,444 @@
+@font-face {
+  font-family: 'flaticon';
+  src: url("../fonts/pets/flaticon.eot");
+  src: url("../fonts/pets/flaticon.eot?#iefix") format("embedded-opentype"), url("../fonts/pets/flaticon.woff") format("woff"), url("../fonts/pets/flaticon.ttf") format("truetype"), url("../fonts/pets/flaticon.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+  font-family: Flaticon;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: normal; }
+
+.flaticon-1:before {
+  content: "\e000"; }
+
+.flaticon-2:before {
+  content: "\e001"; }
+
+.flaticon-3:before {
+  content: "\e002"; }
+
+.flaticon-4:before {
+  content: "\e003"; }
+
+.flaticon-5:before {
+  content: "\e004"; }
+
+.flaticon-6:before {
+  content: "\e005"; }
+
+.flaticon-7:before {
+  content: "\e006"; }
+
+.flaticon-8:before {
+  content: "\e007"; }
+
+.flaticon-9:before {
+  content: "\e008"; }
+
+.flaticon-10:before {
+  content: "\e009"; }
+
+.flaticon-11:before {
+  content: "\e00a"; }
+
+.flaticon-12:before {
+  content: "\e00b"; }
+
+.flaticon-13:before {
+  content: "\e00c"; }
+
+.flaticon-14:before {
+  content: "\e00d"; }
+
+.flaticon-15:before {
+  content: "\e00e"; }
+
+.flaticon-16:before {
+  content: "\e00f"; }
+
+.flaticon-17:before {
+  content: "\e010"; }
+
+.flaticon-18:before {
+  content: "\e011"; }
+
+.flaticon-19:before {
+  content: "\e012"; }
+
+.flaticon-20:before {
+  content: "\e013"; }
+
+.flaticon-21:before {
+  content: "\e014"; }
+
+.flaticon-22:before {
+  content: "\e015"; }
+
+.flaticon-23:before {
+  content: "\e016"; }
+
+.flaticon-24:before {
+  content: "\e017"; }
+
+.flaticon-25:before {
+  content: "\e018"; }
+
+.flaticon-26:before {
+  content: "\e019"; }
+
+.flaticon-27:before {
+  content: "\e01a"; }
+
+.flaticon-28:before {
+  content: "\e01b"; }
+
+.flaticon-29:before {
+  content: "\e01c"; }
+
+.flaticon-30:before {
+  content: "\e01d"; }
+
+.flaticon-31:before {
+  content: "\e01e"; }
+
+.flaticon-32:before {
+  content: "\e01f"; }
+
+.flaticon-33:before {
+  content: "\e020"; }
+
+.flaticon-34:before {
+  content: "\e021"; }
+
+.flaticon-35:before {
+  content: "\e022"; }
+
+.flaticon-36:before {
+  content: "\e023"; }
+
+.flaticon-37:before {
+  content: "\e024"; }
+
+.flaticon-38:before {
+  content: "\e025"; }
+
+.flaticon-39:before {
+  content: "\e026"; }
+
+.flaticon-40:before {
+  content: "\e027"; }
+
+.flaticon-41:before {
+  content: "\e028"; }
+
+.flaticon-42:before {
+  content: "\e029"; }
+
+.flaticon-43:before {
+  content: "\e02a"; }
+
+.flaticon-44:before {
+  content: "\e02b"; }
+
+.flaticon-45:before {
+  content: "\e02c"; }
+
+.flaticon-46:before {
+  content: "\e02d"; }
+
+.flaticon-47:before {
+  content: "\e02e"; }
+
+.flaticon-48:before {
+  content: "\e02f"; }
+
+.flaticon-49:before {
+  content: "\e030"; }
+
+.flaticon-50:before {
+  content: "\e031"; }
+
+.flaticon-51:before {
+  content: "\e032"; }
+
+.flaticon-52:before {
+  content: "\e033"; }
+
+.flaticon-53:before {
+  content: "\e034"; }
+
+.flaticon-54:before {
+  content: "\e035"; }
+
+.flaticon-55:before {
+  content: "\e036"; }
+
+.flaticon-56:before {
+  content: "\e037"; }
+
+.flaticon-57:before {
+  content: "\e038"; }
+
+.flaticon-58:before {
+  content: "\e039"; }
+
+.flaticon-59:before {
+  content: "\e03a"; }
+
+.flaticon-60:before {
+  content: "\e03b"; }
+
+.flaticon-61:before {
+  content: "\e03c"; }
+
+.flaticon-62:before {
+  content: "\e03d"; }
+
+.flaticon-63:before {
+  content: "\e03e"; }
+
+.flaticon-64:before {
+  content: "\e03f"; }
+
+.flaticon-65:before {
+  content: "\e040"; }
+
+.flaticon-66:before {
+  content: "\e041"; }
+
+.flaticon-67:before {
+  content: "\e042"; }
+
+.flaticon-68:before {
+  content: "\e043"; }
+
+.flaticon-69:before {
+  content: "\e044"; }
+
+.flaticon-70:before {
+  content: "\e045"; }
+
+.flaticon-71:before {
+  content: "\e046"; }
+
+.flaticon-72:before {
+  content: "\e047"; }
+
+.flaticon-73:before {
+  content: "\e048"; }
+
+.flaticon-74:before {
+  content: "\e049"; }
+
+.flaticon-75:before {
+  content: "\e04a"; }
+
+.flaticon-76:before {
+  content: "\e04b"; }
+
+.flaticon-77:before {
+  content: "\e04c"; }
+
+.flaticon-78:before {
+  content: "\e04d"; }
+
+.flaticon-79:before {
+  content: "\e04e"; }
+
+.flaticon-80:before {
+  content: "\e04f"; }
+
+.flaticon-81:before {
+  content: "\e050"; }
+
+.flaticon-82:before {
+  content: "\e051"; }
+
+.flaticon-83:before {
+  content: "\e052"; }
+
+.flaticon-84:before {
+  content: "\e053"; }
+
+.flaticon-85:before {
+  content: "\e054"; }
+
+.flaticon-86:before {
+  content: "\e055"; }
+
+.flaticon-87:before {
+  content: "\e056"; }
+
+.flaticon-88:before {
+  content: "\e057"; }
+
+.flaticon-89:before {
+  content: "\e058"; }
+
+.flaticon-90:before {
+  content: "\e059"; }
+
+.flaticon-91:before {
+  content: "\e05a"; }
+
+.flaticon-92:before {
+  content: "\e05b"; }
+
+.flaticon-93:before {
+  content: "\e05c"; }
+
+.flaticon-94:before {
+  content: "\e05d"; }
+
+.flaticon-95:before {
+  content: "\e05e"; }
+
+.flaticon-96:before {
+  content: "\e05f"; }
+
+.flaticon-97:before {
+  content: "\e060"; }
+
+.flaticon-98:before {
+  content: "\e061"; }
+
+.flaticon-99:before {
+  content: "\e062"; }
+
+.flaticon-100:before {
+  content: "\e063"; }
+
+.flaticon-101:before {
+  content: "\e064"; }
+
+.flaticon-102:before {
+  content: "\e065"; }
+
+.flaticon-103:before {
+  content: "\e066"; }
+
+.flaticon-104:before {
+  content: "\e067"; }
+
+.flaticon-105:before {
+  content: "\e068"; }
+
+.flaticon-106:before {
+  content: "\e069"; }
+
+.flaticon-107:before {
+  content: "\e06a"; }
+
+.flaticon-108:before {
+  content: "\e06b"; }
+
+.flaticon-109:before {
+  content: "\e06c"; }
+
+.flaticon-110:before {
+  content: "\e06d"; }
+
+.flaticon-111:before {
+  content: "\e06e"; }
+
+.flaticon-112:before {
+  content: "\e06f"; }
+
+.flaticon-113:before {
+  content: "\e070"; }
+
+.flaticon-114:before {
+  content: "\e071"; }
+
+.flaticon-115:before {
+  content: "\e072"; }
+
+.flaticon-116:before {
+  content: "\e073"; }
+
+.flaticon-117:before {
+  content: "\e074"; }
+
+.flaticon-118:before {
+  content: "\e075"; }
+
+.flaticon-119:before {
+  content: "\e076"; }
+
+.flaticon-120:before {
+  content: "\e077"; }
+
+.flaticon-121:before {
+  content: "\e078"; }
+
+.flaticon-122:before {
+  content: "\e079"; }
+
+.flaticon-123:before {
+  content: "\e07a"; }
+
+.flaticon-124:before {
+  content: "\e07b"; }
+
+.flaticon-125:before {
+  content: "\e07c"; }
+
+.flaticon-126:before {
+  content: "\e07d"; }
+
+.flaticon-127:before {
+  content: "\e07e"; }
+
+.flaticon-128:before {
+  content: "\e07f"; }
+
+.flaticon-129:before {
+  content: "\e080"; }
+
+.flaticon-130:before {
+  content: "\e081"; }
+
+.flaticon-131:before {
+  content: "\e082"; }
+
+.flaticon-132:before {
+  content: "\e083"; }
+
+.flaticon-133:before {
+  content: "\e084"; }
+
+.flaticon-134:before {
+  content: "\e085"; }
+
+.flaticon-135:before {
+  content: "\e086"; }
+
+.flaticon-136:before {
+  content: "\e087"; }
+
+.flaticon-137:before {
+  content: "\e088"; }
+
+.flaticon-138:before {
+  content: "\e089"; }
+
+.flaticon-139:before {
+  content: "\e08a"; }
+
+.flaticon-140:before {
+  content: "\e08b"; }
+
+.flaticon-141:before {
+  content: "\e08c"; }
+
+.flaticon-142:before {
+  content: "\e08d"; }
+
+.flaticon-143:before {
+  content: "\e08e"; }
+
+.flaticon-144:before {
+  content: "\e08f"; }
