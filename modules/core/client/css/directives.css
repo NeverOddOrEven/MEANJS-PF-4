@@ -26,35 +26,36 @@
 .running-tallies {
   min-height: 2rem;
   text-align: center;
-  padding: 1rem 0;
   width: 100%;
   margin: 0.5rem auto 1.5rem auto; }
   .running-tallies .tally {
     display: inline-block;
     position: relative;
-    margin: 0 0.25rem; }
+    padding: 0 .25rem;
+    border: 1px solid #FFF;
+    padding: 0.15rem;
+    margin: 0.15rem;
+    background-color: #EFE9E0; }
     .running-tallies .tally i {
-      padding: 1rem; }
+      text-shadow: 0px 0px 5px #000;
+      display: block; }
     .running-tallies .tally span {
-      position: absolute;
       display: inline-block;
-      background-color: #3F0;
-      border-radius: 2rem;
-      width: 1rem;
-      height: 1rem;
-      padding: 0.15rem;
-      text-align: center; }
+      min-width: 1.25rem;
+      min-height: 1.25rem;
+      line-height: 1.25rem; }
     .running-tallies .tally .tally--char {
-      top: 0;
-      left: 0; }
+      border: 1px solid #FFF;
+      background-color: #FFF; }
     .running-tallies .tally .tally--count {
-      bottom: 0;
-      right: 0; }
+      border: 1px solid #FFF;
+      width: 1.75rem; }
 
 .result-symbols {
   min-height: 2rem;
   margin: 1.5rem 0 0.5rem 0;
-  text-align: center; }
+  text-align: center;
+  text-shadow: 0px 0px 5px #FFF; }
 
 .tally .color-1,
 .symbol .color-1 {
