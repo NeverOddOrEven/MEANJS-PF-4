@@ -1,5 +1,11 @@
 .phrase-entry {
-  text-align: center; }
+  text-align: center;
+  margin: 0 auto;
+  padding: 1rem 3rem;
+  background-color: #efe9e0;
+  border: 3px solid #e6d8c3;
+  border-radius: 1rem;
+  width: 75%; }
   .phrase-entry button {
     margin: 0.5rem;
     line-height: 2rem;
@@ -11,12 +17,18 @@
       background-color: #eda44f; }
   .phrase-entry .phrase-entry__input {
     line-height: 3rem;
-    font-size: 2rem; }
+    font-size: 2rem;
+    width: 80%; }
+    @media (max-width: 600px) {
+      .phrase-entry .phrase-entry__input {
+        width: 100%; } }
 
 .running-tallies {
   min-height: 2rem;
-  margin: 0.5rem 0 1.5rem 0;
-  text-align: center; }
+  text-align: center;
+  padding: 1rem 0;
+  width: 100%;
+  margin: 0.5rem auto 1.5rem auto; }
   .running-tallies .tally {
     display: inline-block;
     position: relative;
@@ -38,3 +50,8 @@
     .running-tallies .tally .tally--count {
       bottom: 0;
       right: 0; }
+
+.result-symbols {
+  min-height: 2rem;
+  margin: 1.5rem 0 0.5rem 0;
+  text-align: center; }

@@ -1,16 +1,16 @@
 'use strict';
 
-angular.module('core').directive('runningTally', [
+angular.module('core').directive('resultSymbols', [
 	function() {
         function link(scope, element, attrs) {
+            
         }
 
-    
 		return {
-			templateUrl: 'modules/core/views/directives/runningtally.view.html',
+			templateUrl: 'modules/core/views/directives/resultsymbols.view.html',
 			restrict: 'E',
             scope: {
-                tally: '='
+                symbols: '='
             },
 			link: link
 		};

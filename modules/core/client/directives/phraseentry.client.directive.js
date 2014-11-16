@@ -3,6 +3,9 @@
 angular.module('core').directive('phraseEntry', [
 	function() {
         function link(scope, element, attrs) {
+            scope.SavePhrase = function() {
+                scope.save();
+            };
         }
 
     
@@ -10,7 +13,8 @@ angular.module('core').directive('phraseEntry', [
 			templateUrl: 'modules/core/views/directives/phraseentry.view.html',
 			restrict: 'E',
             scope: {
-                phrase: '='
+                phrase: '=',
+                save: '&'
             },
 			link: link
 		};

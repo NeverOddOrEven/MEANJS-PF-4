@@ -1,7 +1,7 @@
 <div class="phrase-entry">
     <form>
-        <input type="text" class="phrase-entry__input" data-ng-value="phrase">
+        <input type="text" class="phrase-entry__input" data-ng-model="phrase" 
+               placeholder="Enter a phrase...">
     </form>
-    <button class="phrase-entry__submit">Save</button>
-    <button class="phrase-entry__clear">Clear</button>
+    <button class="phrase-entry__submit" data-ng-click="SavePhrase();">Save</button>
 </div>
