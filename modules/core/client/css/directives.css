@@ -31,14 +31,13 @@
   .running-tallies .tally {
     display: inline-block;
     position: relative;
-    padding: 0 .25rem;
     border: 1px solid #FFF;
     padding: 0.15rem;
     margin: 0.15rem;
     background-color: #EFE9E0;
     text-align: center; }
     .running-tallies .tally i {
-      text-shadow: 0px 0px 5px #000;
+      text-shadow: 0 0 5px #000;
       display: block; }
     .running-tallies .tally span {
       display: inline-block;
@@ -54,7 +53,7 @@
   min-height: 2rem;
   margin: 1.5rem 0 0.5rem 0;
   text-align: center;
-  text-shadow: 0px 0px 5px #000; }
+  text-shadow: 0 0 5px #000; }
 
 .tally .color-1,
 .symbol .color-1 {
