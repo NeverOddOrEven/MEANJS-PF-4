@@ -6,6 +6,12 @@
 var mongoose = require('mongoose'),
 	IconMap = mongoose.model('IconMap');
 
+exports.getAllIcons = function(cb) {
+    IconMap.findOne({}).lean().exec(function(err, result) {
+        cb(result);
+    });
+};
+
 exports.getIconsForPhrase = function(phrase, cb) {
     /* Client styles must support at least ten colors */
     var AVAILABLE_ICONS = process.env.AVAILABLE_ICONS || 144;

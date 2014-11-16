@@ -6,6 +6,11 @@
 var mongoose = require('mongoose'),
 	ColorMap = mongoose.model('ColorMap');
 
+exports.getAllColors = function(cb) {
+    ColorMap.findOne({}).lean().exec(function(err, result) {
+        cb(result);
+    });
+};
 
 exports.getColorsForPhrase = function(phrase, cb) {
     /* Client styles must support at least ten colors */

@@ -20,7 +20,10 @@ exports.invokeRolesPolicies = function() {
 		}, {
 			resources: '/api/phrases/:phraseId',
 			permissions: '*'
-		}]
+		}, {
+            resources: '/api/phrases/charactertallies',
+			permissions: ['get']
+        }]
 	}, {
 		roles: ['user'],
 		allows: [{
@@ -29,7 +32,10 @@ exports.invokeRolesPolicies = function() {
 		}, {
 			resources: '/api/phrases/:phraseId',
 			permissions: ['get']
-		}]
+		}, {
+            resources: '/api/phrases/charactertallies',
+			permissions: ['get']
+        }]
 	}, {
 		roles: ['guest'],
 		allows: [{
@@ -38,7 +44,10 @@ exports.invokeRolesPolicies = function() {
 		}, {
 			resources: '/api/phrases/:phraseId',
 			permissions: ['get']
-		}]
+		}, {
+            resources: '/api/phrases/charactertallies',
+			permissions: ['get']
+        }]
 	}]);
 };
 

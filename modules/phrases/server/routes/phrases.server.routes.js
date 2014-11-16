@@ -12,6 +12,10 @@ module.exports = function(app) {
 		.get(phrases.list)
 		.post(phrases.create);
 
+    // Summary statistics
+    app.route('/api/phrases/charactertallies').all(phrasesPolicy.isAllowed)
+        .get(phrases.characterTallies);
+    
 	// Single phrase routes
 	app.route('/api/phrases/:phraseId').all(phrasesPolicy.isAllowed)
 		.get(phrases.read);

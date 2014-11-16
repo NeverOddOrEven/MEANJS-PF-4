@@ -63,6 +63,43 @@ exports.list = function(req, res) {
 	});
 };
 
+exports.characterTallies = function(req, res) {
+    var mapReduceOptions = {
+        map: function() {
+            for (var i = 0; i < this.content.length; ++i) {
+                emit(this.content.charAt(i), 1); // jshint ignore:line
+            }
+        },
+        reduce: function(k, vals) {
+            return vals.length;
+        }
+    };
+    
+    var results = Phrase.mapReduce(mapReduceOptions);
+    
+    results.then(function(model, stats) {
+        return model.sort('field _id');
+    }).then(function(counts) {
+        IconMap.getAllIcons(function(iconsResult) {
+            ColorMap.getAllColors(function(colorsResult) {
+                var result = [];
+                for (var i = 0; i < counts.length; ++i) {
+                    var char = counts[i]._id[0];
+                    var icon = iconsResult.icons[char];
+                    var color = colorsResult.colors[char];
+                    result.push({
+                        char: char,
+                        icon: icon,
+                        color: color
+                    });
+                }
+                
+                res.json({tallies: result});
+            });
+        });
+    }); 
+};
+
 /**
  * Phrase middleware
  */

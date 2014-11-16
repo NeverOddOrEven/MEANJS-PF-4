@@ -1,13 +1,16 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Phrases',
-	function($scope, Authentication, Phrases) {
+angular.module('core').controller('HomeController', [
+    '$scope', 'Authentication', 'Phrases', 'Tallies',
+	function($scope, Authentication, Phrases, Tallies) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
         
         $scope.$watch('result', function() {
             // Update the tallies
-
+            Tallies.get({}, function(response) {
+                console.log(response);
+            });
         });
         
         $scope.init = function() {
