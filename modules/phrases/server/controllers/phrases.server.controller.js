@@ -27,11 +27,20 @@ exports.create = function(req, res) {
             IconMap.getIconsForPhrase(phrase.content, function(icons) {
                 ColorMap.getColorsForPhrase(phrase.content, function(colors) {
                     var result = [];
+
                     for (var i = 0; i < phrase.content.length; ++i) {
+                        var key = phrase.content[i];
+                        
+                        // TODO: refactor into an escape service
+                        if (key === '.')
+                            key = 'period';
+                        if (key === '$')
+                            key = 'dollar';
+                            
                         result.push({
                             char: phrase.content[i],
-                            icon: icons[phrase.content[i]],
-                            color: colors[phrase.content[i]]   
+                            icon: icons[key],
+                            color: colors[key]   
                         });
                     }
                     res.json({symbols: result});
@@ -84,13 +93,23 @@ exports.characterTallies = function(req, res) {
             ColorMap.getAllColors(function(colorsResult) {
                 var result = [];
                 for (var i = 0; i < counts.length; ++i) {
-                    var char = counts[i]._id[0];
-                    var icon = iconsResult.icons[char];
-                    var color = colorsResult.colors[char];
+                    var char = counts[i]._id;
+                    
+                    var key = char;
+                    if (char === '.') 
+                        key = 'period';
+                    if (char === '$')
+                        key = 'dollar';
+                    
+                    var icon = iconsResult.icons[key];
+                    var color = colorsResult.colors[key];
+                    var count = counts[i].value;
+                    
                     result.push({
                         char: char,
                         icon: icon,
-                        color: color
+                        color: color,
+                        count: count
                     });
                 }
                 

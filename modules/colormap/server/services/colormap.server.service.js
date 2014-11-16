@@ -14,12 +14,18 @@ exports.getAllColors = function(cb) {
 
 exports.getColorsForPhrase = function(phrase, cb) {
     /* Client styles must support at least ten colors */
-    var AVAILABLE_COLORS = process.env.AVAILABLE_COLORS || 14;
+    var AVAILABLE_COLORS = process.env.NUM_AVAILABLE_COLORS || 14;
 
     function updateColorMap(colorMap, phrase) {
         for (var i = 0; i < phrase.length; ++i) {
-            var curChar = phrase.charAt(i);
+            var curChar = phrase.charAt(i); // '' + to make sure it is a string
 
+            // todo: refactor into an escape service
+            if (curChar === '.')
+                curChar = 'period';
+            if (curChar === '$')
+                curChar = 'dollar';
+            
             if (!colorMap[curChar]) {
                 colorMap[curChar] = Math.ceil((Math.random() + 0.0001) * AVAILABLE_COLORS);
             }

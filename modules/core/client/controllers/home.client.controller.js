@@ -9,7 +9,7 @@ angular.module('core').controller('HomeController', [
         $scope.$watch('result', function() {
             // Update the tallies
             Tallies.get({}, function(response) {
-                console.log(response);
+                $scope.tallies = response.tallies;
             });
         });
         

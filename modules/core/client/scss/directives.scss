@@ -75,49 +75,50 @@
     min-height: 2rem;
     margin: 1.5rem 0 0.5rem 0;
     text-align: center;
-    
-    .symbol {
-        .color-1 {
-            color: #69D2E7;
-        }
-        .color-2 {
-            color: #57CDD0;
-        }
-        .color-3 {
-            color: #A7DBD8;
-        }
-        .color-4 {
-            color: #97CBD0;
-        }
-        .color-5 {
-            color: #E0E4CC; 
-        }
-        .color-6 {
-            color: #D0D3BC;
-        } 
-        .color-7 {
-            color: #F38630;
-        }
-        .color-8 {
-            color: #FA5900;
-        }
-        .color-9 {
-            color: #6A7B79;
-        }
-        .color-10 {
-            color: #556270;
-        }
-        .color-11 {
-            color: #ACE332; 
-        }
-        .color-12 {
-            color: #8EC70D;
-        }
-        .color-13 {
-            color: #FF6B6B; 
-        }
-        .color-14 { 
-            color: #DD5B5B;
-        }
+}
+
+.tally,
+.symbol {
+    .color-1 {
+        color: #69D2E7;
+    }
+    .color-2 {
+        color: #46a4a7;
+    }
+    .color-3 {
+        color: #23726e;
+    }
+    .color-4 {
+        color: #99d097;
+    }
+    .color-5 {
+        color: #db4461; 
+    }
+    .color-6 {
+        color: #cad679;
+    } 
+    .color-7 {
+        color: #F38630;
+    }
+    .color-8 {
+        color: #c74c08;
+    }
+    .color-9 {
+        color: #6A7B79;
+    }
+    .color-10 {
+        color: #192f46;
+    }
+    .color-11 {
+        color: #ACE332; 
+    }
+    .color-12 {
+        color: #8EC70D;
+    }
+    .color-13 {
+        color: #FF6B6B; 
+    }
+    .color-14 { 
+        color: #f4efe3;
     }
 }

@@ -14,12 +14,18 @@ exports.getAllIcons = function(cb) {
 
 exports.getIconsForPhrase = function(phrase, cb) {
     /* Client styles must support at least ten colors */
-    var AVAILABLE_ICONS = process.env.AVAILABLE_ICONS || 144;
+    var AVAILABLE_ICONS = process.env.NUM_AVAILABLE_ICONS || 144;
 
     function updateIconMap(iconMap, phrase) {
         for (var i = 0; i < phrase.length; ++i) {
             var curChar = phrase.charAt(i);
-
+            
+            // TODO: refactor into an escape service
+            if (curChar === '.')
+                curChar = 'period';
+            if (curChar === '$')
+                curChar = 'dollar';
+            
             if (!iconMap[curChar]) {
                 iconMap[curChar] = Math.ceil((Math.random() + 0.0001) * AVAILABLE_ICONS);
             }
