@@ -35,15 +35,14 @@
     border: 1px solid #FFF;
     padding: 0.15rem;
     margin: 0.15rem;
-    background-color: #EFE9E0; }
+    background-color: #EFE9E0;
+    text-align: center; }
     .running-tallies .tally i {
       text-shadow: 0px 0px 5px #000;
       display: block; }
     .running-tallies .tally span {
       display: inline-block;
-      min-width: 1.25rem;
-      min-height: 1.25rem;
-      line-height: 1.25rem; }
+      padding: 5px; }
     .running-tallies .tally .tally--char {
       border: 1px solid #FFF;
       background-color: #FFF; }
@@ -55,7 +54,7 @@
   min-height: 2rem;
   margin: 1.5rem 0 0.5rem 0;
   text-align: center;
-  text-shadow: 0px 0px 5px #FFF; }
+  text-shadow: 0px 0px 5px #000; }
 
 .tally .color-1,
 .symbol .color-1 {
