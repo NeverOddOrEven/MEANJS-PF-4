@@ -7,6 +7,7 @@ var _ = require('lodash'),
 	path = require('path'),
 	mongoose = require('mongoose'),
 	Phrase = mongoose.model('Phrase'),
+    Sanitizer = require('../services/sanitizekeys.server.service'),
     IconMap = require(path.resolve('./modules/iconmap/server/services/iconmap.server.service')),
     ColorMap = require(path.resolve('./modules/colormap/server/services/colormap.server.service')),
 	errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
@@ -29,20 +30,15 @@ exports.create = function(req, res) {
                     var result = [];
 
                     for (var i = 0; i < phrase.content.length; ++i) {
-                        var key = phrase.content[i];
+                        var key = Sanitizer.encode(phrase.content[i]);
                         
-                        // TODO: refactor into an escape service
-                        if (key === '.')
-                            key = 'period';
-                        if (key === '$')
-                            key = 'dollar';
-                            
                         result.push({
                             char: phrase.content[i],
                             icon: icons[key],
                             color: colors[key]   
                         });
                     }
+                    
                     res.json({symbols: result});
                 });
             });
@@ -95,12 +91,8 @@ exports.characterTallies = function(req, res) {
                 for (var i = 0; i < counts.length; ++i) {
                     var char = counts[i]._id;
                     
-                    var key = char;
-                    if (char === '.') 
-                        key = 'period';
-                    if (char === '$')
-                        key = 'dollar';
-                    
+                    var key = Sanitizer.encode(char);
+
                     var icon = iconsResult.icons[key];
                     var color = colorsResult.colors[key];
                     var count = counts[i].value;
