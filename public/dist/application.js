@@ -94,10 +94,37 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
 
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication',
-	function($scope, Authentication) {
+angular.module('core').controller('HomeController', [
+    '$scope', 'Authentication', 'Phrases', 'Tallies',
+	function($scope, Authentication, Phrases, Tallies) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
+        
+        $scope.$watch('result', function() {
+            // Update the tallies
+            Tallies.get({}, function(response) {
+                $scope.tallies = response.tallies;
+            });
+        });
+        
+        $scope.init = function() {
+            $scope.phrase = '';
+            $scope.tallies = [];
+            $scope.result = {};
+        };
+        
+        /* Invoked by the directive "phraseentry.client.directive" */
+        $scope.SavePhrase = function() {
+            var phrase = new Phrases({
+                content: $scope.phrase
+            });
+            
+            phrase.$save(function(response) {
+                $scope.result = response.symbols;
+			}, function(errorResponse) {
+				console.error(errorResponse.data.message);
+			});
+        };
 	}
 ]);
 'use strict';
@@ -105,7 +132,9 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 angular.module('core').directive('phraseEntry', [
 	function() {
         function link(scope, element, attrs) {
-            
+            scope.SavePhrase = function() {
+                scope.save();
+            };
         }
 
     
@@ -113,7 +142,8 @@ angular.module('core').directive('phraseEntry', [
 			templateUrl: 'modules/core/views/directives/phraseentry.view.html',
 			restrict: 'E',
             scope: {
-                phrase: '='
+                phrase: '=',
+                save: '&'
             },
 			link: link
 		};
@@ -121,17 +151,35 @@ angular.module('core').directive('phraseEntry', [
 ]);
 'use strict';
 
-angular.module('core').directive('phrasePreview', [
+angular.module('core').directive('resultSymbol', [
+	function() {
+        function link(scope, element, attrs) {
+        }
+
+    
+		return {
+			templateUrl: 'modules/core/views/directives/resultsymbol.view.html',
+			restrict: 'E',
+            scope: {
+                symbol: '='
+            },
+			link: link
+		};
+	}
+]);
+'use strict';
+
+angular.module('core').directive('resultSymbols', [
 	function() {
         function link(scope, element, attrs) {
             
         }
 
 		return {
-			templateUrl: 'modules/core/views/directives/phrasepreview.view.html',
+			templateUrl: 'modules/core/views/directives/resultsymbols.view.html',
 			restrict: 'E',
             scope: {
-                phrase: '='
+                symbols: '='
             },
 			link: link
 		};
@@ -150,7 +198,7 @@ angular.module('core').directive('runningTallies', [
 			templateUrl: 'modules/core/views/directives/runningtallies.view.html',
 			restrict: 'E',
             scope: {
-                characterTallies: '='
+                tallies: '='
             },
 			link: link
 		};
@@ -161,7 +209,6 @@ angular.module('core').directive('runningTallies', [
 angular.module('core').directive('runningTally', [
 	function() {
         function link(scope, element, attrs) {
-            
         }
 
     
@@ -169,70 +216,11 @@ angular.module('core').directive('runningTally', [
 			templateUrl: 'modules/core/views/directives/runningtally.view.html',
 			restrict: 'E',
             scope: {
-                characterTally: '='
+                tally: '='
             },
 			link: link
 		};
 	}
-]);
-'use strict';
-
-//Menu service used for managing  menus
-angular.module('core').service('ColorPalette', [
-    function() {
-        
-        /* Consider adding server support to configure this */
-        var defaultPalette = [
-            {foreground: '#69D2E7', border: '#57CDD0'},
-            {foreground: '#A7DBD8', border: '#97CBD0'}, 
-            {foreground: '#E0E4CC', border: '#D0D3BC'}, 
-            {foreground: '#F38630', border: '#FA5900'},
-            {foreground: '#6A7B79', border: '#556270'},
-            {foreground: '#ACE332', border: '#8EC70D'},
-            {foreground: '#FF6B6B', border: '#DD5B5B'}
-        ];
-        
-        /* 
-            Keys are the encountered characters
-            Values are the position in the system color palette
-        */
-        var colorTransferFunction = null;
-        
-        /*
-            If the color transfer function is null, check the server
-            If the server returns null (first use), assign an empty object
-            Else assign the returned object
-            
-            Returns a promise
-        */
-        function getColorTransferFunction() {
-            return colorTransferFunction;
-        }
-        
-        /* 
-            Save the transfer function to the server 
-        
-            Returns a promise
-        */
-        function saveColorTransferFunction() {
-        }
-        
-        /*
-            Get the color transfer function
-            Check the color transfer function for the character
-            If there is not one, create an entry and assign a color
-            Else return the color object at the position specified in the map
-            
-            Returns a promise
-        */
-        function getColorForCharacter(character) {
-            
-        }
-    
-        return {
-            getColorForCharacter: getColorForCharacter
-        };
-    }
 ]);
 'use strict';
 
@@ -414,6 +402,31 @@ angular.module('core').service('Menus', [
     }
 ]);
 
+'use strict';
+
+//Phrases service used for communicating with the phrases REST endpoints
+angular.module('core').factory('Phrases', ['$resource',
+	function($resource) {
+		return $resource('api/phrases/:phraseId', {
+			phraseId: '@_id'
+		}, {
+			update: {
+				method: 'PUT'
+			}
+		});
+	}
+]);
+'use strict';
+
+//Tallies service used for communicating with the phrases REST endpoints
+angular.module('core').factory('Tallies', ['$resource',
+	function($resource) {
+		return $resource('api/phrases/charactertallies', {
+		}, {
+            
+		});
+	}
+]);
 'use strict';
 
 // Config HTTP Error Handling
