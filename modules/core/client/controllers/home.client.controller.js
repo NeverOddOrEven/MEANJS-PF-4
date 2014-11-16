@@ -10,7 +10,10 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
             $scope.tallies = [
                 {'char': 'a', 'count': 5, 'icon': 1}, 
                 {'char': 'A', 'count': 3, 'icon': 2}, 
-                {'char': 'B', 'count' : 10, 'icon': 3}
+                {'char': 'B', 'count' : 10, 'icon': 3},
+                {'char': 'a', 'count': 5, 'icon': 1}, 
+                {'char': 'A', 'count': 3, 'icon': 2}, 
+                {'char': 'B', 'count' : 10, 'icon': 3},
             ];
         };
 	}
