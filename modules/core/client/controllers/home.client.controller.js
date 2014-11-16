@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication',
-	function($scope, Authentication) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Phrases',
+	function($scope, Authentication, Phrases) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
         
@@ -25,7 +25,15 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
         
         /* Invoked by the directive "phraseentry.client.directive" */
         $scope.SavePhrase = function() {
-            console.log('Saving...' + $scope.phrase);
+            var phrase = new Phrases({
+                content: $scope.phrase
+            });
+            
+            phrase.$save(function(response) {
+				console.log('Successfully saved phrase');
+			}, function(errorResponse) {
+				console.error(errorResponse.data.message);
+			});
         };
 	}
 ]);
