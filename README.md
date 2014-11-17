@@ -6,7 +6,7 @@ Based heavily on [![MEAN.JS Logo](http://meanjs.org/img/logo-small.png)](http://
 Click here for the [Live Demo](http://asuttmiller-pf-4.herokuapp.com)
 
 ### Portfolio Overview
-1. A user types in a phrase.
+1. A user types in a phrase & saves.
 2. Each character in the phrase is mapped to an icon 1-144.
 3. Each character in the phrase is mapped to a color 1-14.
 4. The phrase is then displayed as icons from a font file, with newly mapped colors.
