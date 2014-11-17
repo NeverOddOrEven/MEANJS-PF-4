@@ -20,5 +20,10 @@
 		it('should expose the authentication service', function() {
 			expect(scope.authentication).toBeTruthy();
 		});
+        
+                
+        it('should expose an init routine', function() {
+            expect(scope.init).toBeTruthy();
+        });
 	});
 })();
