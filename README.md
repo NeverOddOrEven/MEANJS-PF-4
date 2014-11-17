@@ -7,12 +7,13 @@ Click here for the [Live Demo](http://asuttmiller-pf-4.herokuapp.com)
 
 ### Portfolio Overview
 1. A user types in a phrase & saves.
-2. Each character in the phrase is mapped randomly to an icon 1-144.
-3. Each character in the phrase is mapped randomly to a color 1-14.
+2. Each character in the phrase is mapped randomly to an icon 1-144. This association is saved and reused across the system.*
+3. Each character in the phrase is mapped randomly to a color 1-14. This association is saved and reused across the system.*
 4. The phrase is then displayed as icons from a font file, with newly mapped colors.
 5. The system then performs a map-reduce on all the characters in the phrases collection to return a per-character count. 
 6. The tallies are displayed after every new additional phrase, with the respective mapped icon & color.
 
+* If a race condition happens last in wins
 
 ### Prerequisites
 Make sure you have installed all these prerequisites on your development machine.
