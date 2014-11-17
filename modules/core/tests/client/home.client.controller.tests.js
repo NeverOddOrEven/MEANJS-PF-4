@@ -25,5 +25,9 @@
         it('should expose an init routine', function() {
             expect(scope.init).toBeTruthy();
         });
+        
+        it('should expose a SavePhrase routine', function() {
+            expect(scope.SavePhrase).toBeTruthy();
+        });
 	});
 })();

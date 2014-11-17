@@ -4,6 +4,8 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+    path = require('path'),
+    Sanitizer = require(path.resolve('./modules/phrases/server/services/sanitizekeys.server.service')),
 	ColorMap = mongoose.model('ColorMap');
 
 exports.getAllColors = function(cb) {
@@ -18,13 +20,7 @@ exports.getColorsForPhrase = function(phrase, cb) {
 
     function updateColorMap(colorMap, phrase) {
         for (var i = 0; i < phrase.length; ++i) {
-            var curChar = phrase.charAt(i); // '' + to make sure it is a string
-
-            // todo: refactor into an escape service
-            if (curChar === '.')
-                curChar = 'period';
-            if (curChar === '$')
-                curChar = 'dollar';
+            var curChar = Sanitizer.encode(phrase.charAt(i));
             
             if (!colorMap[curChar]) {
                 colorMap[curChar] = Math.ceil((Math.random() + 0.0001) * AVAILABLE_COLORS);

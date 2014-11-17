@@ -4,6 +4,8 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+    path = require('path'),
+    Sanitizer = require(path.resolve('./modules/phrases/server/services/sanitizekeys.server.service')),
 	IconMap = mongoose.model('IconMap');
 
 exports.getAllIcons = function(cb) {
@@ -18,13 +20,7 @@ exports.getIconsForPhrase = function(phrase, cb) {
 
     function updateIconMap(iconMap, phrase) {
         for (var i = 0; i < phrase.length; ++i) {
-            var curChar = phrase.charAt(i);
-            
-            // TODO: refactor into an escape service
-            if (curChar === '.')
-                curChar = 'period';
-            if (curChar === '$')
-                curChar = 'dollar';
+            var curChar = Sanitizer.encode(phrase.charAt(i));
             
             if (!iconMap[curChar]) {
                 iconMap[curChar] = Math.ceil((Math.random() + 0.0001) * AVAILABLE_ICONS);
