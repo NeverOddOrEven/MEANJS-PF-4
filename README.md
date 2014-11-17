@@ -48,6 +48,12 @@ Your application should run on the 3000 port so in your browser just go to [http
 That's it! your application should be running by now, to proceed with your development check the other sections in this documentation. 
 If you encounter any problem try the Troubleshooting section.
 
+## Testing
+There is support for unit testing. Some unit tests have been added specific to the portfolio code.
+```
+$ grunt test
+```
+
 ## Community
 * Use to [Offical Website](http://meanjs.org) to learn about changes and the roadmap.
 * Join #meanjs on freenode.
